@@ -1,0 +1,20 @@
+import discord
+from discord.ext import commands
+
+client = commands.Bot(command_prefix = "*")
+
+@client.event
+async def on_ready():
+  print ("bot online!")
+  
+@client.command()
+async def kick(ctx, member : discord.Member, *,reason=None):
+  await member.kick(reason=reason)
+  await ctx.send("Done, kicked.")
+
+@client.command()
+async def ban(ctx, member : discord.Member, *,reason=None):
+  await member.ban(reason=reason)
+  await ctx.send("Finally, that retard is banned !")
+
+client.run("NzkzMzI3MjcxNjk0ODI3NTIw.X-qpmA.FrcSnKbKb8VFDULkAZx_FCYb-6s")
